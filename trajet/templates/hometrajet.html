@@ -1,0 +1,35 @@
+{%extends 'accueil.html'%}
+{% block contenu %}
+</br>
+
+<h2> la liste  des trajets est</h2>
+</br>
+<table border="1" cellpadding="20" class="table table-sm">
+    <tr><th>id</th>
+        <th>depart</th>
+        <th>destination</th>
+        <th>liste vols</th>
+        
+       
+        
+    </tr>
+{%for trajet in trajet %}
+
+    <tr>
+        <td> <a href="{%url 'detailtrajet' trajet.id %} "  class="btn btn-primary  bg-dark">{{trajet.id}}</a></td>
+        <td>{{trajet.depart}}</td>
+        <td>{{trajet.arrivee}}</td>
+        
+        <td>{% for trajet in trajet.vol_set.all %}
+            <a href="{%url 'detail' trajet.id %} "  class="btn btn-primary  bg-dark" >vol {{trajet.id}} </br> </a> 
+            {%endfor%}
+        </td>
+        
+
+    </tr>
+    {%endfor%}
+</table> 
+
+</br>
+
+{% endblock %}

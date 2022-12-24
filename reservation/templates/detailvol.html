@@ -1,0 +1,36 @@
+{%extends 'accueil.html'%}
+{% block contenu %}
+</br>
+
+<h2> Voici le vol {{vol.id}} </h2>
+</br>
+<table border="1" cellpadding="20" class="table table-sm">
+    <tr><th>id</th>
+        <th>prix</th>
+        <th>date</th>
+        <th>heure</th>
+        <th>trajet</th>
+        <th>liste compagnie</th>
+        
+    </tr>
+
+
+    <tr>
+        <td> <a href="{%url 'detail' vol.id %} " class="btn btn-primary  bg-dark">{{vol.id}}</a></td>
+        <td>{{vol.prix}}</td>
+        <td>{{vol.date}}</td>
+        <td>{{vol.heure}}</td>
+        <td>{{vol.trajet}}</td>
+        <td>
+        {% for vol in vol.compagnie_set.all %}
+        
+             <a href="{%url 'detailcompagnie' vol.id %} "  class="btn btn-primary  bg-dark">{{vol.nom}}  </a> 
+    
+    
+    {%endfor%}
+</td>
+<td> <a href="{%url 'supvol' vol.id %} "  class="btn btn-primary  bg-dark">supprimer</a></td>
+
+</br>
+
+{% endblock %}

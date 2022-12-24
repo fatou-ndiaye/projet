@@ -1,0 +1,22 @@
+{%extends 'accueil.html'%}
+{%load static%}
+{% block contenu %}
+<!-- <h2>Modifier les informations de la compagnie {{compagnie_id}} </h2>
+<form action="" method="POST">
+    {{form.as_p}}
+    <input type="submit" class="btn btn-success" value="modifier" >
+</form> -->
+
+<div class="row">
+    <div class="col-sm-8" offset-2>
+        <h4 class="alert alert-info">Modifier les informations d'une compagnie</h4>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-success" value="modifier" >
+        </form> 
+    </div>
+</div>
+
+
+{% endblock %}

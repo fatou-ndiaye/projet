@@ -1,0 +1,33 @@
+{%extends 'accueil.html'%}
+{% block contenu %}
+{%load static%}
+
+</br>
+
+<h2 > Voici la compagnie {{compagnie.id}} </h2>
+</br>
+<table border="1" cellpadding="20" class="table table-sm">
+    <tr>
+        <th>logo</th>
+        <th>id</th>
+        <th>nom</th>
+
+        
+    </tr>
+
+
+    <tr>
+        <td> <img src="{% static compagnie.logo  %} "  alt='Wikihow LOGO' width='200' height='200'/></td>
+        <td>{{compagnie.id}} </td> 
+        <td>{{compagnie.nom}}</td>
+        <td> <a href="{%url 'updatecompagnie' compagnie.id %} "  class="btn btn-primary  bg-dark">modifier</a></td>
+
+
+   
+    </tr>
+    
+   
+</table>
+</br>
+
+{% endblock %}
